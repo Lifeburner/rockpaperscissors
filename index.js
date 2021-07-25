@@ -24,3 +24,20 @@ function rpsRound (playerSelection, computerSelection) {
         else {return "tied"; }
     }
 }
+
+function game () {
+    let playerScore = 0;
+    let computerScore = 0;
+    for (let index = 0; index < 5; index++) {
+        let choice = window.prompt("Enter 'rock', 'paper', or 'scissors'");
+        let round = rpsRound(choice, computerPlay());
+        if (round === "you win") { playerScore++; }
+        else if (round === "computer wins") { computerScore++; }
+        else {
+            playerScore = playerScore + 0.5;
+            computerScore = computerScore + 0.5;
+        }
+    }
+    console.log("Your score is " + playerScore.toString());
+    console.log("The computer's score is " + computerScore.toString());
+}
